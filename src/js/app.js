@@ -3,15 +3,15 @@ import json from './parser';
 
 export default class GameSavingLoader {
   static load() {
-    return new Promise((resolve) => {
-        return resolve;
-    });
-  }
-};
-
-async function all () {
-    await GameSavingLoader.load();
-    await read();
-    await json(data);
-    return json(data);
-};
+    (async () => {
+      try{  
+        await read();
+        await json((data) => data);
+      }
+      catch(error) {
+        throw new Error(error);
+      }
+    
+    })();
+  };
+}
